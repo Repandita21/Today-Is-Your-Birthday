@@ -55,7 +55,7 @@
             background-size: 180px;
         }
 
-        img { display: block; max-width: 100%; }
+        img { display: block; max-width: 100%; height: auto; }
 
         .progress-line {
             position: fixed;
@@ -673,13 +673,47 @@
             border: 1px solid var(--accent);
             transform: rotate(45deg);
         }
+
+        /* --- TAMBAHAN UNTUK RESPONSIVE (MENCEGAH TERPOTONG DI HP) --- */
+        @media (max-width: 768px) {
+            .sec { padding: 60px 0; }
+            .rank-sec { padding: 80px 0; }
+            .letter-sec { padding: 80px 20px; }
+            
+            /* Agar teks tidak menabrak pinggir layar */
+            .container { padding-left: 20px; padding-right: 20px; }
+            
+            /* Memperkecil heading agar tidak memenuhi layar HP */
+            .heading-lg { font-size: 28px; }
+            .rank-heading { font-size: 24px; }
+            
+            /* Penyesuaian layout kolom pada bagian Rank */
+            .rank-sec .row { flex-direction: column-reverse; }
+            .rank-sec .order-lg-2 { flex-direction: column; }
+            .rank-sec--dark .row { flex-direction: column-reverse; }
+
+            /* Penyesuaian gambar agar tidak terlalu panjang di HP */
+            .img-rank, .img-rank-hero { 
+                max-height: 400px; 
+                width: 100%; 
+                margin-top: 30px;
+            }
+
+            /* Surat agar nyaman dibaca di layar sempit */
+            .letter-content {
+                padding: 0 5px;
+            }
+            .letter-content p {
+                font-size: 14.5px;
+                text-align: justify;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="progress-line" id="progressLine"></div>
 
-    <!-- Nav -->
     <nav class="top-nav" id="topNav">
         <div class="container">
             <div class="nav-inner">
@@ -689,7 +723,6 @@
         </div>
     </nav>
 
-    <!-- Hero — Foto 1 -->
     <header class="hero" id="heroSection">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-gradient"></div>
@@ -710,7 +743,6 @@
         </div>
     </header>
 
-    <!-- Daftar Isi -->
     <div class="toc-strip">
         <div class="container">
             <p class="toc-label">In This Edition</p>
@@ -724,7 +756,6 @@
         </div>
     </div>
 
-    <!-- Momen — 3 Foto Potret -->
     <section class="sec momen-section" id="momen">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-2">
@@ -736,7 +767,6 @@
                 </div>
             </div>
 
-            <!-- 3 frame potret sejajar -->
             <div class="momen-trio" data-aos="fade-up" data-aos-delay="100">
                 <div>
                     <div class="momen-frame">
@@ -760,14 +790,12 @@
         </div>
     </section>
 
-    <!-- Kutipan -->
     <div class="sec-compact" style="background:var(--bg);">
         <blockquote class="pull-quote" data-aos="fade-up" data-aos-duration="900">
             Kamu tidak hanya tumbuh dewasa tahun ini — kamu tumbuh menjadi seseorang yang kita semua kagumi.
         </blockquote>
     </div>
 
-    <!-- Rank 3 — Foto Potret -->
     <section class="rank-sec" id="rank3">
         <div class="rank-big-num">3</div>
         <div class="container">
@@ -797,7 +825,6 @@
         </div>
     </section>
 
-    <!-- Rank 2 — Foto Potret -->
     <section class="rank-sec" id="rank2">
         <div class="rank-big-num">2</div>
         <div class="container">
@@ -827,14 +854,12 @@
         </div>
     </section>
 
-    <!-- Ornamen -->
     <div class="ornament" data-aos="fade" data-aos-duration="600">
         <div class="ornament-line"></div>
         <div class="ornament-diamond"></div>
         <div class="ornament-line"></div>
     </div>
 
-    <!-- Rank 1 — Foto Potret -->
     <section class="rank-sec rank-sec--dark" id="rank1">
         <div class="rank-big-num">1</div>
         <div class="container">
@@ -867,7 +892,6 @@
         </div>
     </section>
 
-    <!-- Surat -->
     <section class="letter-sec" id="letter">
         <div class="container">
             <div class="letter-top" data-aos="fade-up">
@@ -894,7 +918,6 @@
         </div>
     </section>
 
-    <!-- Finale — Foto 7 -->
     <section class="finale" id="finaleSection">
         <div class="finale-bg" id="finaleBg"></div>
         <div class="finale-grad"></div>
@@ -904,7 +927,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="foot">
         <p>Dibuat dengan sepenuh hati <span>&bull;</span> untuk seseorang yang pantas mendapatkan dunia <span>&bull;</span> 2026</p>
     </footer>
